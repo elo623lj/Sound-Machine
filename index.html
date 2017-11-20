@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Assignment 2: Sound Machine</title>
+<style>
+	::-webkit-scrollbar {
+    width: 0px;  
+    background: transparent; 
+}
+	
+	body {width: 100%;  min-width:1300px; height:100%; 
+	 }	
+	
+
+	#header {background-color:#00989D; width:100%; height:150px; min-width: 1300px; position:fixed; top:0; left:0; z-index: 999;}
+	#logo{height:100px; width:auto; position: absolute; bottom: 20px; left:20px; display: inline-block;}
+	#items{position: absolute; bottom: -10px; right:20px;}
+	.item{display: inline-block; height:100px; width:180px; position: relative; text-align:center; padding: 5px;} 
+	.item :hover{transform: scale(1.5,1.5);}
+	.item p{font-size: 20px; font-family: Arial, Helvetica, sans-serif;  font-weight:bold; letter-spacing: 2px; color:#FFFFFF; position:relative; margin-left: auto; margin-right: auto; line-height: 30px;}
+	
+	#shown{position: fixed; display: block;  width:1300px; height:600px; top:200px; left:50%;transform: translate(-50%, 0); padding: 100px 0px 300px 0px; overflow-y: scroll; }
+	#part1 {display:block;   width:1000px; position: relative; margin-left: auto; margin-right: auto;  margin-bottom: 250px;}
+	#part1 p{font-size: 25px; font-family: Arial, Helvetica, sans-serif;  font-weight:bold; letter-spacing: 2px; color:#000000; position:relative; margin-left: auto; margin-right: auto; line-height: 50px; }
+	#part2 {display:none; width:500px; position: relative;   margin-left: auto; margin-right: auto; margin-bottom: 250px;}
+	#part2 p{text-align:center; font-size: 25px; font-family: Arial, Helvetica, sans-serif;  font-weight:bold; letter-spacing: 2px; color:#000000; position:relative; margin-left: auto; margin-right: auto; line-height: 50px; }
+	#part3 {display:none;position: relative; width:900px; margin-left: auto; margin-right: auto;margin-bottom: 250px; } #part3 img{display: block;}
+	#diagram{width: 800px; height: auto; opacity: 0.8;margin-top: 100px;background-color: rgba(255,255,255,0.2);} 
+	#pic{opacity: 0.7;margin-left: auto; margin-right: auto; display: inline-block;width:700px; height:auto; } #pic:hover{opacity: 1;}
+	#part4 {display:none; position: relative;  margin-left: auto; margin-right: auto;  width:600px; height:auto;  margin-bottom: 250px; } .name{font-size: 20px; font-family: Arial, Helvetica, sans-serif;  font-weight:bold; letter-spacing: 3px; color:#FFFFFF; margin-bottom: 20px; text-align: left;}.thesketch{color:#000000;vwidth: 100%; height:450px; overflow: scroll;margin-bottom: 100px;background-color: rgba(255,255,255,0.2);}
+	#part5 {display:none;  position: relative; margin-left: auto; margin-right: auto;  width:1250px; height:2800px;margin-bottom: 250px; }
+	#part5 iframe {display:block; position:relative; margin-left: auto; margin-right: auto; }
+	.photo {display:block; width: 800px; position:relative; margin-left: auto; margin-right: auto; margin-bottom: 100px;}
+	.photo img{ width: 100%; height: auto; margin: 0;  opacity: 0.8;}
+	.photo img:hover{transform: scale(1.2);opacity: 1;}
+	
+	
+	.photo1 {display:block; width: 600px; position:relative; margin-left: auto; margin-right: auto; margin-bottom: 80px;text-shadow: 0 0 0;}
+	.photo1 img{ width: 100%; height: auto; margin: 0;  opacity: 0.8;}
+	.title{font-size: 30px; font-family: Arial, Helvetica, sans-serif;  font-weight:bold; letter-spacing: 8px; color:#000000; text-align: center;margin-bottom: 50px;}
+	
+	a:link {
+    color: white; 
+}
+
+	a:visited {
+    color: white;
+}
+	
+
+</style>
+</head>
+
+<body>
+
+<script>
+function show(a) {
+	
+	for(i=1;i<=5;i++){
+	var x = document.getElementById("part"+i);   // Get the element with id="demo"
+	x.style.display = "none";
+	}
+	
+	var x = document.getElementById("part"+a);   // Get the element with id="demo"
+	x.style.display = "block";
+
+	var p = document.getElementById("shown");   // Get the element with id="demo"
+	p.scrollTop = 0;
+	
+}
+</script>
+
+	
+<div id="header">
+    
+    
+	<img id="logo" src="Arduino_logo.svg">
+	<div id="items">
+		<div class="item" onclick="show(1)"><p>INTRODUCTION</p></div>
+		<div class="item" onclick="show(2)"><p>COMPONENT LIST</p></div>
+		<div class="item" onclick="show(3)"><p>WIRING DIAGRAM</p></div>
+		<div class="item" onclick="show(4)"><p>SKETCH</p></div>
+		<div class="item" onclick="show(5)"><p>RESULTS</p></div>
+	</div>
+	
+</div>
+         
+<div id="shown">
+	
+		<div id="part1" >
+		<div class="title">INTRODUCTION</div>
+<p>In this project, we want to build a rotary sound machine with pleasing lighting effect. This sound machine will be used to store eight notes/samples, and play them when rotated at different degrees. Users can rotate the machine themselves using the rotary encoder, or they can write down the melody and the machine will play the music itself. </p>
+	<p>Let's see what have we done! </p>
+		
+		
+		</div>
+		
+		
+		<div id="part2" >
+	
+	     <div class="title">COMPONENT LIST</div>
+	     <p></p>
+		<p>
+Arduino Uno x 1 
+<br>Stepper x 1
+<br>LED strip x 1
+<br>Rotary Encoder x 1
+<br>Yellow 5mm LED x 1
+<br>Acrylic Block x 8
+<br>5V Power Supply x 1
+<br>Computer(with Speaker) x 1
+			</p>
+		
+		
+		</div>
+		
+		<div id="part3" >
+		<div class="title">WIRING DIAGRAM</div>
+		<img id="diagram" src="wiring_diagram.png">
+		</div>
+		
+		<div id="part4" >
+		<div class="title">SKETCH</div>
+		
+		<div class="name">ARDUINO</div>
+		<div class="thesketch">
+		
+
+<p>#include &lt;Adafruit_NeoPixel.h&gt;</p>
+<p>#define NUMBER_PIXEL 8<br />#define LEDPIN 6</p>
+<p>Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, LEDPIN, NEO_GRB + NEO_KHZ800);</p>
+<p>#include &lt;Stepper.h&gt;</p>
+<p>int color [8][3] = {<br /> 255,56,152,<br /> 255,0,0,<br /> 255,127,0,<br /> 255,255,0,<br /> 0,255,0,<br /> 0,0,255,<br /> 75,0,130,<br /> 148,0,211<br />};</p>
+<p>int num = 129;</p>
+<p>int melody[129][2] = {</p>
+<p>1,600,<br /> 1,600,<br /> 1,600,<br /> 1,600,<br /> 2,600,<br /> 2,600,<br /> 3,300,<br /> 4,600,<br /> 3,300, <br /> <br /> 1,600,<br /> 1,600,<br /> 1,600,<br /> 1,600,<br /> 2,600,<br /> 2,600,<br /> 3,300,<br /> 4,600,<br /> 5,300,</p>
+<p>1,600,<br /> 1,600,<br /> 1,600,<br /> 1,600,<br /> 2,600,<br /> 2,600,<br /> 3,300,<br /> 4,600,<br /> 3,300,</p>
+<p>1,600,<br /> 1,600,<br /> 1,600,<br /> 1,600,<br /> 2,600,<br /> 2,600,<br /> 3,300,<br /> 4,600,<br /> 5,300,</p>
+<p>0,300,<br /> 0,300,<br /> 0,300,<br /> 0,300,<br /> 3,300,<br /> 4,600,<br /> 3,300,</p>
+<p>0,300,<br /> 0,300,<br /> 0,300,<br /> 0,300,<br /> 3,300,<br /> 4,600,<br /> 5,300,</p>
+<p>0,300,<br /> 0,300,<br /> 0,300,<br /> 0,300,<br /> 3,300,<br /> 4,600,<br /> 3,300,</p>
+<p>0,300,<br /> 0,300,<br /> 0,300,<br /> 0,300,<br /> 3,300,<br /> 4,600,<br /> 5,300,</p>
+<p>5,300,<br /> 6,300,<br /> 0,300,<br /> 5,300,<br /> 3,300,<br /> 4,600,<br /> 3,300,</p>
+<p>5,300,<br /> 6,300,<br /> 0,300,<br /> 5,300,<br /> 3,300,<br /> 4,600,<br /> 5,300,</p>
+<p>5,300,<br /> 6,300,<br /> 0,300,<br /> 5,300,<br /> 3,300,<br /> 4,600,<br /> 3,300,</p>
+<p>5,300,<br /> 6,300,<br /> 0,300,<br /> 5,300,<br /> 3,300,<br /> 4,600,<br /> 5,300,</p>
+<p>5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 3,300,<br /> 4,600,<br /> 5,300,</p>
+<p>5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 3,300,<br /> 4,600,<br /> 1,300,</p>
+<p>5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 3,300,<br /> 4,600,<br /> 5,300,</p>
+<p>5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 5,600,<br /> 3,300,<br /> 4,600,<br /> 1,300,</p>
+<p>5,1000<br /> <br />};</p>
+<p>float wait;</p>
+<p>int pos = 0;<br />int mode = 1;</p>
+<p>int in1Pin = 11;<br />int in2Pin = 10;<br />int in3Pin = 9;<br />int in4Pin = 8;<br /><br />#define STEPS 200<br /> <br />Stepper motor(STEPS, in1Pin, in2Pin, in3Pin, in4Pin); <br /> <br />void setup()<br />{<br /> strip.begin();<br /> strip.setBrightness(255);<br /> strip.show();</p>
+<p>Serial.begin(9600);<br /> pinMode(in1Pin, OUTPUT);<br /> pinMode(in2Pin, OUTPUT);<br /> pinMode(in3Pin, OUTPUT);<br /> pinMode(in4Pin, OUTPUT);<br /> <br /> motor.setSpeed(100);<br /> <br /> int note = 0;<br /> int direct;<br /> int dist;<br /> for (int i=0;i&lt;num;i++){<br /> <br /> if (i==36) mode = 2;<br /> if (i==92) mode = 1;<br /> if (i==98) mode = 2;<br /> if (i==101) mode = 1;<br /> if (i==107) mode = 2;<br /> if (i==110) mode = 1;<br /> if (i==116) mode = 2;<br /> if (i==119) mode = 1;<br /> if (i==125) mode = 2;<br /><br /> note = melody[i][0]; <br /> dist = note - pos; <br /> direct = 1;</p>
+<p>if (dist &lt; 0) {<br /> dist = abs(dist); <br /> direct = -1;<br /> }<br /> <br /> motor.step(dist*10*direct);<br /> Serial.println(note);<br /> <br /> if(mode == 1){<br /> int ran = floor(random(8));<br /> strip.setPixelColor(24+note*2, color[ran][0], color[ran][1], color[ran][2]);<br /> strip.show(); <br /> if(i&lt;num-1) wait = melody[i][1]- abs(melody[i+1][0] - note)*28;<br /> delay(wait-100); <br /> strip.clear();<br /> strip.show();<br /> delay(100);<br /> }</p>
+<p>else if (mode == 2){ <br /> int ran = floor(random(8));<br /> strip.setPixelColor(24+note*2, color[ran][0], color[ran][1], color[ran][2]);<br /> strip.show();<br /> if(i&lt;num-1) wait = melody[i][1]- abs(melody[i+1][0] - note)*28;<br /> int temp1 = note; int temp2 = note;<br /> int max1 = 7 - note;<br /> if (max1&lt;4) max1 = 7 - max1; <br /> for(int i=1;i&lt;=max1;i++){<br /> temp1 +=1; temp2 -=1; <br /> if(temp1&lt;=7) strip.setPixelColor(24+temp1*2, color[ran][0], color[ran][1], color[ran][2]);<br /> if(temp2&gt;=0) strip.setPixelColor(24+temp2*2, color[ran][0], color[ran][1], color[ran][2]);<br /> strip.show();<br /> delay(wait/max1);<br /> }<br /> strip.clear(); <br /> strip.show();<br /> }</p>
+<p>pos = note;<br /> <br /> }<br />}</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+		
+		</div>
+		<div class="name">PROCESSING</div>
+		<div class="thesketch">
+		
+
+<p>import ddf.minim.*;<br />import ddf.minim.analysis.*;</p>
+<p>import processing.serial.*;<br />Serial myPort;&nbsp;<br />String val;&nbsp;<br />int no;</p>
+<p>Minim m;<br />AudioSample[] note = new AudioSample[8];</p>
+<p>void setup(){<br />size(512, 200);<br />frameRate(90);</p>
+<p>m = new Minim(this);<br />for(int i=0; i&lt;8; i++){<br />note[i] = m.loadSample(str(i)+".wav",128);<br />}<br /><br />String portName = Serial.list()[3];&nbsp;<br />myPort = new Serial(this, portName, 9600);<br />}</p>
+<p>void draw(){<br />}</p>
+<p>void serialEvent(Serial myPort) {<br /><br />val = myPort.readStringUntil('\n');</p>
+<p>if(val != null){</p>
+<p>no = int( float(val) );&nbsp;</p>
+<p>note[no].trigger();&nbsp;<br />}</p>
+<p><br />}</p>
+		
+		</div>
+		
+		</div>
+		
+		<div id="part5" >
+		<div class="title">RESULTS</div>
+				
+		<div class="photo"><img src="1.png"></div>
+		<div class="photo"><img src="2.png"></div>
+		<div class="photo"><img src="3.png"></div>
+		<div class="photo"><img src="4.png"></div>
+		
+		<iframe width="800" height="450" src="https://www.youtube.com/embed/oDDJARQa7Yg" frameborder="0" allowfullscreen></iframe>
+		
+		</div>
+			
+		
+		
+		
+</div>
+ 
+</body>
+</html>
